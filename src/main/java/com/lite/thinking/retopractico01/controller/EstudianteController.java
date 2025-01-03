@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Data
 @RestController
 @RequestMapping("/api/estudiantes")
 public class EstudianteController {
 
     private final ServiceEstudiante serviceEstudiante;
+
+    public EstudianteController(ServiceEstudiante serviceEstudiante) {
+        this.serviceEstudiante = serviceEstudiante;
+    }
 
     @GetMapping({"", "/"})
     public ResponseEntity<List<Estudiante>> listarEstudiantes() {
